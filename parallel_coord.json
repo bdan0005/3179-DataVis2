@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Fertility Rate",
+  "title": "Fertility Rate Over Time",
+  "data": {
+    "url": "https://raw.githubusercontent.com/bdan0005/3179-Week10Homework/refs/heads/main/parallel-fertility-rate.csv"
+  },
+  "width": 400,
+  "height": 300,
+  "transform": [
+    {"window": [{"op": "count", "as": "index"}]},
+    {"fold": ["2012", "2022"]},
+    {
+      "calculate": "(datum.value - 1.4) / (2.2 - 1.4)",
+      "as": "norm_val"
+    },
+    {
+      "calculate": "(datum.value - 1.4) / (2.2 - 1.4) + 0.04",
+      "as": "y_offset"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#ccc"},
+      "encoding": {
+        "detail": {"aggregate": "count"},
+        "x": {"field": "key"}
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": {"filled": true, "size": 100}
+      },
+      "encoding": {
+        "color": {
+          "type": "nominal", 
+          "field": "State/Territory", 
+          "legend": {
+            "title": "State/Territory"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "state_highlight",  
+            "value": 1
+          },
+          "value": 0.2
+        },
+        "detail": {"type": "nominal", "field": "index"},
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"type": "quantitative", "field": "norm_val", "axis": null},
+        "tooltip": [
+          {
+            "type": "nominal",
+            "field": "State/Territory",
+            "title": "State/Territory"
+          },
+          {
+            "type": "quantitative",
+            "field": "2012",
+            "title": "2012 Fertility Rate (%)"
+          },
+          {
+            "type": "quantitative",
+            "field": "2022",
+            "title": "2022 Fertility Rate (%)"
+          }
+        ]
+      },
+      "selection": {  
+        "state_highlight": {
+          "type": "multi",
+          "fields": ["State/Territory"],
+          "bind": "legend"
+        }
+      }
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 0}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"value": "2.2"}
+          }
+        },
+        {
+          "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 150}
+      },
+      "layer": [
+        {
+          "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+        }
+      ]
+    },
+    {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 300}
+      },
+      "layer": [
+        {
+          "mark": {"type": "text", "style": "label"},
+          "encoding": {
+            "text": {"value": "1.4"}
+          }
+        },
+        {
+          "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+        }
+      ]
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "x": {"field": "key", "type": "nominal"},
+        "y": {
+          "field": "y_offset", 
+          "type": "quantitative"
+        },
+        "text": {"value": "1.73%"},
+        "color": {"value": "black"}
+      },
+      "transform": [
+        {
+          "filter": {
+            "and": [
+              {"field": "State/Territory", "equal": "NT"},
+              {"field": "key", "equal": "2022"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "mark": "text",
+      "encoding": {
+        "x": {"field": "key", "type": "nominal"},
+        "y": {
+          "field": "y_offset", 
+          "type": "quantitative"
+        },
+        "text": {"value": "1.41%"},
+        "color": {"value": "black"}
+      },
+      "transform": [
+        {
+          "filter": {
+            "and": [
+              {"field": "State/Territory", "equal": "ACT"},
+              {"field": "key", "equal": "2022"}
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "axisX": {
+      "domain": false,
+      "labelAngle": 0,
+      "tickColor": "#ccc",
+      "title": null
+    },
+    "view": {"stroke": null},
+    "style": {
+      "label": {"baseline": "middle", "align": "right", "dx": -5},
+      "tick": {"orient": "horizontal"}
+    }
+  }
+}
