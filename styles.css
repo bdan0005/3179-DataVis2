@@ -1,0 +1,63 @@
+/* General body settings */
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+/* Ensures that the whole page div takes up the full view height and centers content */
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Centering the grid elements */
+.pure-g {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Each grid item should be centered */
+.pure-u-1-1, .pure-u-1-3, .pure-u-2-3, .pure-u-1-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* The containers for the visualizations */
+.vis-container {
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Description styling */
+.description {
+    padding: 5px;
+    margin: 15px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* Center the headings */
+h1 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h2 {
+    padding: 10px;
+    font-size: 20px;
+}
