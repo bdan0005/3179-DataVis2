@@ -15,17 +15,11 @@
   },
   "layer": [
     {
-      "mark": {
-        "type": "rect",
-        "fill": "#f4fafa",
-        "stroke": null
+      "data": {
+        "url": "oceans.topojson",
+        "format": {"type": "topojson", "feature": "oceans"}
       },
-      "encoding": {
-        "x": { "value": 0 },
-        "y": { "value": 0 },
-        "x2": { "value": 650 },
-        "y2": { "value": 350 }
-      }
+      "mark": {"type": "geoshape", "fill": "#f4fafa"}
     },
     {
       "data": {
