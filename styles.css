@@ -169,6 +169,7 @@ hr {
     margin-top: 10px;
     margin-right: 25px;
     align-items: center;
+    justify-content: center;
 }
 
 .states-body {
