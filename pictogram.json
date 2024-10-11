@@ -33,7 +33,7 @@
         "condition": {
           "test": "datum.id > 7",
           "value": "#d6d6d6"},
-        "value": "rgb(194,81,64)"
+        "value": "#c2a1a1"
       },
       "size": {"value": 90},
       "tooltip": [
