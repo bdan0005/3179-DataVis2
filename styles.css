@@ -1,26 +1,19 @@
 /* General body settings */
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins/Poppins-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .vega-embed {
     font-family: 'Poppins', sans-serif;
 }   
-
   
 body {
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #faf7f7;
+    background-color: #ede4e4;
 }
 
-/* Ensures that the whole page div takes up the full view height and centers content */
 .page {
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,9 +22,58 @@ body {
     height: 100%;
     padding: 20px;
     background-color: #ffffff;
-    margin: 30px 20px;
+    margin: 20px 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    justify-content: center;
+    margin: 20px;
+}
+
+hr {
+    background-color: #e6dada;
+    height: 2px;
+    border: none;
+    width: 95%;
+}
+
+.decorated-header {
+    font-family: 'Great Vibes', sans-serif;
+    font-size: 60px;
+    color: #c4b1b1;
+}
+
+.base-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 35px;
+    color: black;
+    margin-left: 15px;
+}
+
+/* Overview */
+.overview {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+}
+
+.overview-desc {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 25px;
+    width: 100%;
+}
+
+.isotype {
+    margin-right: 25px;
+}
+
 
 /* Centering the grid elements */
 .pure-g {
