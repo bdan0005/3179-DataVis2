@@ -33,6 +33,11 @@ h2 {
     margin-top: 25px;
 }
 
+p {
+    color: #313131;
+    font-size: 15px;
+}
+
 /* Header */
 .header {
     display: flex;
@@ -126,4 +131,39 @@ hr {
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.global-choropleth {
+    display: flex;
+    justify-content: space-between;
+}
+
+.choropleth {
+    margin: 25px;
+}
+
+.choropleth-desc {
+    align-items: center;
+    text-align: left;
+    justify-content: center;
+    margin: 25px;
+}
+
+.choropleth-guide {
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* Fertility Across the States*/
+.states {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.states-body {
+    display: flex;
+    justify-content: space-between;
 }
