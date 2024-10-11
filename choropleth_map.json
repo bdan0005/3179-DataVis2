@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
   "height": 350,
-  "title": "Birth Rate (births per 1000 population)",
+  "title": "Birth rate (births per 1000 population)",
   "config": {
     "view": {
       "stroke": null

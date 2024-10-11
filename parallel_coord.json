@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Fertility Rate",
-  "title": "Fertility Rate Over Time",
+  "title": "Fertility rate over time (babies per women)",
   "data": {
     "url": "https://raw.githubusercontent.com/bdan0005/3179-Week10Homework/refs/heads/main/parallel-fertility-rate.csv"
   },
-  "width": 400,
-  "height": 300,
+  "width": 300,
+  "height": 250,
   "transform": [
     {"window": [{"op": "count", "as": "index"}]},
     {"fold": ["2012", "2022"]},
@@ -36,6 +36,28 @@
         "color": {
           "type": "nominal", 
           "field": "State/Territory", 
+          "scale": {
+            "domain": [
+              "NSW", 
+              "VIC", 
+              "QLD", 
+              "SA", 
+              "WA", 
+              "TAS", 
+              "NT", 
+              "ACT"
+            ],
+            "range": [
+              "#a35252", 
+              "#d4c84a", 
+              "#76a352", 
+              "#5281a3", 
+              "#7052a3", 
+              "#a3529a", 
+              "#e377c2", 
+              "#5e5e5e"
+            ]
+          },
           "legend": {
             "title": "State/Territory"
           }
@@ -59,12 +81,12 @@
           {
             "type": "quantitative",
             "field": "2012",
-            "title": "2012 Fertility Rate (%)"
+            "title": "2012 Fertility Rate"
           },
           {
             "type": "quantitative",
             "field": "2022",
-            "title": "2022 Fertility Rate (%)"
+            "title": "2022 Fertility Rate"
           }
         ]
       },
@@ -96,7 +118,7 @@
     {
       "encoding": {
         "x": {"type": "nominal", "field": "key"},
-        "y": {"value": 150}
+        "y": {"value": 125}
       },
       "layer": [
         {
@@ -107,7 +129,7 @@
     {
       "encoding": {
         "x": {"type": "nominal", "field": "key"},
-        "y": {"value": 300}
+        "y": {"value": 250}
       },
       "layer": [
         {
@@ -118,50 +140,6 @@
         },
         {
           "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
-        }
-      ]
-    },
-    {
-      "mark": "text",
-      "encoding": {
-        "x": {"field": "key", "type": "nominal"},
-        "y": {
-          "field": "y_offset", 
-          "type": "quantitative"
-        },
-        "text": {"value": "1.73%"},
-        "color": {"value": "black"}
-      },
-      "transform": [
-        {
-          "filter": {
-            "and": [
-              {"field": "State/Territory", "equal": "NT"},
-              {"field": "key", "equal": "2022"}
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "mark": "text",
-      "encoding": {
-        "x": {"field": "key", "type": "nominal"},
-        "y": {
-          "field": "y_offset", 
-          "type": "quantitative"
-        },
-        "text": {"value": "1.41%"},
-        "color": {"value": "black"}
-      },
-      "transform": [
-        {
-          "filter": {
-            "and": [
-              {"field": "State/Territory", "equal": "ACT"},
-              {"field": "key", "equal": "2022"}
-            ]
-          }
         }
       ]
     }
@@ -175,7 +153,7 @@
     },
     "view": {"stroke": null},
     "style": {
-      "label": {"baseline": "middle", "align": "right", "dx": -5},
+      "label": {"baseline": "middle", "align": "right", "dx": -8},
       "tick": {"orient": "horizontal"}
     }
   }
