@@ -1,0 +1,28 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Line chart with two separate CSV files.",
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/australia-births.csv",
+          "format": {
+            "type": "csv"
+          },
+          "name": "Data2"
+        },
+        "mark": "line",
+        "encoding": {
+          "x": {"field": "Year", "type": "quantitative"},
+          "y": {
+            "field": "Births registered", 
+            "type": "quantitative",
+            "scale": {"domain": [100000, 400000]}  
+          },
+          "color": {"value": "red"}
+        }
+      }
+    ],
+    "width": 400,
+    "height": 300
+  }
+  
