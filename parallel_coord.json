@@ -5,8 +5,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/bdan0005/3179-Week10Homework/refs/heads/main/parallel-fertility-rate.csv"
   },
-  "width": 300,
-  "height": 250,
+  "width": 350,
+  "height": 230,
   "transform": [
     {"window": [{"op": "count", "as": "index"}]},
     {"fold": ["2012", "2022"]},
@@ -129,7 +129,7 @@
     {
       "encoding": {
         "x": {"type": "nominal", "field": "key"},
-        "y": {"value": 250}
+        "y": {"value": 230}
       },
       "layer": [
         {
@@ -153,7 +153,7 @@
     },
     "view": {"stroke": null},
     "style": {
-      "label": {"baseline": "middle", "align": "right", "dx": -8},
+      "label": {"baseline": "middle", "align": "right", "dx": 25},
       "tick": {"orient": "horizontal"}
     }
   }

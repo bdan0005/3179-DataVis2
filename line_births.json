@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line chart showing Births data with tooltips, hover highlighting, and year range selection.",
+  "title": "Births Registered Across Australia Over Time",
+  "width": 400,
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/australia-fertility-births.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "params": [
+    {
+      "name": "startYear",
+      "value": 1934,
+      "bind": {
+        "input": "range",
+        "min": 1934,
+        "max": 2022,
+        "step": 1,
+        "name": "Start Year: "
+      }
+    },
+    {
+      "name": "endYear",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 1934,
+        "max": 2022,
+        "step": 1,
+        "name": "End Year: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "year(datum.Year) >= startYear && year(datum.Year) <= endYear"
+    }
+  ],
+  "layer": [
+    {
+      "selection": {
+        "hover": {
+          "type": "single",
+          "fields": ["Year", "Births registered"],
+          "on": "mouseover",
+          "empty": "none"
+        }
+      },
+      "mark": {
+        "type": "line",
+        "tooltip": true  
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal",
+          "axis": {"title": "Year"}
+        },
+        "y": {
+          "field": "Births registered",
+          "type": "quantitative",
+          "scale": {"domain": [100000, 400000]},
+          "axis": {"title": "Births Registered"}
+        },
+        "color": {
+          "value": "#b89a9a"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "size": 50,
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "Births registered",
+          "type": "quantitative"
+        },
+        "color": {
+          "condition": {
+            "selection": "hover",  
+            "value": "#bd6480"            
+          },
+          "value": "#b89a9a"
+        },
+        "tooltip": [  
+          {"field": "Year", "type": "temporal", "title": "Year"},
+          {"field": "Births registered", "type": "quantitative", "title": "Births Registered"}
+        ]
+      }
+    }
+  ]
+}

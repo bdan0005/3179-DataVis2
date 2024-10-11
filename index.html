@@ -79,15 +79,31 @@
         <div class="states-overview">
           <p>
             Australia's fertility rates have been declining over the past few decades, with the current 
-            national average around 1.63 children per woman. States like Queensland and the Northern Territory show slightly higher rates, 
-            while metropolitan areas tend to have lower fertility, reflecting broader demographic shifts 
-            and lifestyle choices.
+            national average around 1.63 children per woman. States like Queensland and New South Wales show slightly higher rates.
           </p>
           <div class="parallel-guide">➤ Click on an item in the legend to highlight</div>
           <div id="vis1" class="parallel-coord"></div>
         </div>
         <div class="states-graphs">
-          
+          <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('births')">Births</button>
+                <button class="tab-button" onclick="showTab('fertility')">Fertility Rate</button>
+            </div>
+        
+            <div id="births" class="tab-content active">
+              <div class="line-guide1">➤ Use sliders to adjust year range</div>
+              <div class="line-guide2">➤ Hover on the circles to see values</div>
+              <div id="vis4" class="line-births"></div>
+            </div>
+        
+            <div id="fertility" class="tab-content">
+              <div class="line-guide1">➤ Use sliders to adjust year range</div>
+              <div class="line-guide2">➤ Hover on the circles to see values</div>
+              <div id="vis5" class="line-fertility"></div>
+            </div>
+          </div>
+    
         </div>
       </div>
     </div>
@@ -97,6 +113,8 @@
     var specVis1 = "./parallel_coord.json";
     var specVis2 = "./choropleth_map.json";
     var specVis3 = "./pictogram.json";
+    var specVis4 = "./line_births.json";
+    var specVis5 = "./line_fertility.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -108,9 +126,41 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed('#vis4', specVis2, { "actions": false }).then(function (result) {
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    
+    // Tabs function
+    function showTab(tabName) {
+      // Get all tab content and buttons
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      // Hide all tab contents and remove active class from buttons
+      tabs.forEach(tab => {
+          tab.classList.remove('active');
+      });
+      buttons.forEach(button => {
+          button.classList.remove('active');
+      });
+
+      // Show the selected tab
+      document.getElementById(tabName).classList.add('active');
+
+      // Capitalize the first letter of tabName for matching the button's textContent
+      const formattedTabName = tabName === 'fertility' ? 'Fertility Rate' : 'Births';
+
+      // Find the corresponding button and set it to active
+      const activeButton = [...buttons].find(button => button.textContent.trim() === formattedTabName);
+      if (activeButton) {
+          activeButton.classList.add('active');
+      }
+    }
+
   </script>
 </body>
 
