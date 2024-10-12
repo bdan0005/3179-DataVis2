@@ -196,13 +196,13 @@ hr {
 }
 
 .tab-button {
+    font-family: 'Poppins';
     padding: 10px 20px;
     border: none;
     background-color: #f1f1f1;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
-    margin-right: -1px; /* Prevents double borders */
+    border-radius: 10px 10px 0 0; 
     z-index: 1;
 }
 
