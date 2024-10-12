@@ -66,7 +66,7 @@
           "axis": {"title": "Babies per woman"}
         },
         "color": {
-          "value": "#b89a9a"
+          "value": "#c99ba6"
         }
       }
     },
@@ -88,9 +88,9 @@
         "color": {
           "condition": {
             "selection": "hover",  
-            "value": "#bd6480"            
+            "value": "#d92390"            
           },
-          "value": "#b89a9a"
+          "value": "#c99ba6"
         },
         "tooltip": [  
           {"field": "Year", "type": "temporal", "title": "Year"},

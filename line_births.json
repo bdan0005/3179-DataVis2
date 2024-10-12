@@ -63,10 +63,10 @@
           "field": "Births registered",
           "type": "quantitative",
           "scale": {"domain": [100000, 400000]},
-          "axis": {"title": "Births Registered"}
+          "axis": {"title": "Births registered"}
         },
         "color": {
-          "value": "#b89a9a"
+          "value": "#9d86ad"
         }
       }
     },
@@ -88,13 +88,13 @@
         "color": {
           "condition": {
             "selection": "hover",  
-            "value": "#bd6480"            
+            "value": "#d92390"            
           },
-          "value": "#b89a9a"
+          "value": "#9d86ad"
         },
         "tooltip": [  
           {"field": "Year", "type": "temporal", "title": "Year"},
-          {"field": "Births registered", "type": "quantitative", "title": "Births Registered"}
+          {"field": "Births registered", "type": "quantitative", "title": "Births registered"}
         ]
       }
     }
