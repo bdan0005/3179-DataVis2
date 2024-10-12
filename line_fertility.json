@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Line chart showing Fertility Rate in Australia with tooltips, hover highlighting, and year range selection.",
-  "title": "Fertility Rate in Australia Over Time",
+  "title": "Fertility Rate in Australia Over Time (babies per woman)",
   "width": 400,
   "height": 250,
   "data": {
