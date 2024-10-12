@@ -203,6 +203,7 @@ hr {
     transition: background-color 0.3s, color 0.3s;
     border-radius: 10px 10px 0 0; /* Rounded top corners */
     margin-right: -1px; /* Prevents double borders */
+    z-index: 1;
 }
 
 .tab-button:hover {
@@ -215,6 +216,7 @@ hr {
     border-bottom: none; /* To overlap with content */
     font-weight: bold;
     color: #333; /* Change text color for the active tab */
+    z-index: 50;
 }
 
 .tab-content {
