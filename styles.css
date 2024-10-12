@@ -177,12 +177,33 @@ hr {
     justify-content: space-between;
 }
 
+.states-subheader {
+    font-size: 16px;
+    color: #313131;
+    text-align: center;
+    background-color: #f0e8e8;
+    padding: 10px;
+    font-weight: bold;
+}
+
 .parallel-guide {
     font-size: 12px;
     color: gray;
     text-align: center;
     padding-top: 40px;
     padding-bottom: 20px;
+}
+
+.nation-subheader {
+    font-size: 16px;
+    color: #313131;
+    text-align: center;
+    background-color: #f0e8e8;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 25px;
+    margin-left: 20px;
 }
 
 .tabs-container {
@@ -244,4 +265,16 @@ hr {
     color: gray;
     text-align: center;
     padding-bottom: 20px;
+}
+
+.state-births-subheader {
+    font-size: 16px;
+    color: #313131;
+    text-align: center;
+    background-color: #f0e8e8;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 25px;
+    margin-left: 20px;
 }
