@@ -79,7 +79,8 @@
       "encoding": {
         "x": {
           "field": "Year",
-          "type": "temporal"
+          "type": "temporal",
+          "axis": {"title": "Year", "format": "%Y"}
         },
         "y": {
           "field": "Births registered",
@@ -93,7 +94,7 @@
           "value": "#9d86ad"
         },
         "tooltip": [  
-          {"field": "Year", "type": "temporal", "title": "Year"},
+          {"field": "Year", "type": "temporal", "title": "Year", "timeUnit": "year"},
           {"field": "Births registered", "type": "quantitative", "title": "Births registered"}
         ]
       }

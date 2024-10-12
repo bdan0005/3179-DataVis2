@@ -79,7 +79,8 @@
       "encoding": {
         "x": {
           "field": "Year",
-          "type": "temporal"
+          "type": "temporal",
+          "axis": {"title": "Year", "format": "%Y"}
         },
         "y": {
           "field": "Total fertility rate",
@@ -93,7 +94,7 @@
           "value": "#c99ba6"
         },
         "tooltip": [  
-          {"field": "Year", "type": "temporal", "title": "Year"},
+          {"field": "Year", "type": "temporal", "title": "Year", "timeUnit": "year"},
           {"field": "Total fertility rate", "type": "quantitative", "title": "Fertility Rate"}
         ]
       }
