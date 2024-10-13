@@ -1,7 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
-    "data": {"url": "data/countries.json"},
+    "data": {
+        "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/median-age.csv",
+        "format": {
+            "type":"csv"
+        }
+    },
     "transform": [
       {
         "filter": {

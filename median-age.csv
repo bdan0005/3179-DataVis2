@@ -1,3 +1,5 @@
-﻿Year,Mother,Father
-2000,29.8,32.2
-2022,31.9,33.7
+﻿Year,Parent,Median Age
+2000,Mother,29.8
+2022,Mother,31.9
+2000,Father,32.2
+2022,Father,33.7
