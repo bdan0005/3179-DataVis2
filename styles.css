@@ -394,7 +394,7 @@ hr {
 .parents-fertility {
     margin-left: 30px;
     margin-top: 10px;
-    margin-right: 25px;
+    margin-right: 45px;
     align-items: center;
     justify-content: center;
     width: 50%;
@@ -407,7 +407,6 @@ hr {
     background-color: #f0e8e8;
     padding: 10px;
     font-weight: bold;
-    margin-right: 25px;
     margin-bottom: 15px;
     width: 100%;
 }
