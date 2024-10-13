@@ -80,14 +80,16 @@
           <div class="states-subheader">Fertility In The States and Territories</div>
           <p>
             Australia's fertility rates have been declining over the past few decades, with the current 
-            national average around 1.63 children per woman. States like Queensland and New South Wales show slightly higher rates.
+            national average around <strong>1.63 children per woman</strong>. The regions Queensland, the Northern Territory and New South Wales show slightly higher rates.
           </p>
           <div class="parallel-guide">➤ Click on an item in the legend to highlight</div>
           <div id="vis1" class="parallel-coord"></div>
         </div>
         <div class="state-births">
           <div class="state-births-subheader">Births in the States and Territories</div>
-          <div id="vis6"></div>          
+          <div class="births-guide1">➤ Use sliders to adjust year range</div>
+          <div class="births-guide2">➤ Hover on the circles to highlight and see values</div>
+          <div id="vis6" class="state-births-plot"></div>          
         </div>
       </div>
       <div class="states-graphs">
@@ -135,6 +137,8 @@
     var specVis4 = "./line_births.json";
     var specVis5 = "./line_fertility.json";
     var specVis6 = "./state-births.json";
+    var specVis7 = "./dotplot.json";
+    var specVis8 = "./butterfly_chart.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -155,6 +159,14 @@
     }).catch(console.error);
 
     vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis7', specVis7, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis8', specVis8, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
     
