@@ -1,67 +1,90 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A butterfly chart comparing two categories (e.g., Mother and Father) across different age groups.",
-    "title": "Fertility Rate by Age Group",
-    "data": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A butterfly chart comparing two categories (e.g., Mother and Father) across different age groups.",
+  "title": "Fertility rate by age group in 2022",
+  "data": {
       "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/fertility-by-age.csv",
       "format": {"type": "csv"}
-    },
-    "transform": [
+  },
+  "transform": [
       {
-        "calculate": "datum.Parent === 'Mother' ? datum['Fertility Rate'] : -datum['Fertility Rate']",
-        "as": "Fertility Rate"
+          "calculate": "datum.Parent === 'Mother' ? datum['Fertility Rate'] : -datum['Fertility Rate']",
+          "as": "Fertility Rate"
       },
       {
-        "calculate": "abs(datum['Fertility Rate'])",
-        "as": "Fertility Rate Absolute"
+          "calculate": "abs(datum['Fertility Rate'])",
+          "as": "Fertility Rate Absolute"
       }
-    ],
-    "encoding": {
+  ],
+  "encoding": {
       "y": {
-        "field": "Age Group",
-        "type": "nominal",
-        "title": "Age group",
-        "sort": ["45-49", "40-44", "35-39", "30-34", "25-29", "20-24", "15-19"],
-        "axis": {
-          "labelAngle": 0
-        }
+          "field": "Age Group",
+          "type": "nominal",
+          "title": "Age group",
+          "sort": ["45-49", "40-44", "35-39", "30-34", "25-29", "20-24", "15-19"],
+          "axis": {
+              "labelAngle": 0
+          }
       },
       "x": {
-        "field": "Fertility Rate",
-        "type": "quantitative",
-        "title": "Fertility rate (per 1000 people)",
-        "scale": {"domain": [-120, 120]},
-        "axis": {
-          "labelExpr": "datum.value < 0 ? -datum.value : datum.value"
-        }
-      },
-      "selection": {
-        "hover": {
-          "type": "point",
-          "on": "mouseover",
-          "encodings": ["y"],
-          "empty": "all"
-        }
+          "field": "Fertility Rate",
+          "type": "quantitative",
+          "title": "Fertility rate (per 1000 people)",
+          "scale": {"domain": [-120, 120]},
+          "axis": {
+              "labelExpr": "datum.value < 0 ? -datum.value : datum.value"
+          }
       },
       "color": {
-        "field": "Parent",
-        "type": "nominal",
-        "scale": {
-          "domain": ["Mother", "Father"],
-          "range": ["#cfa5a5", "#708f9e"]
-        },
-        "title": "Parent"
+          "field": "Parent",
+          "type": "nominal",
+          "scale": {
+              "domain": ["Mother", "Father"],
+              "range": ["#cfa5a5", "#708f9e"]
+          },
+          "title": "Parent",
+          "legend": {
+              "labelColor": "black",
+              "labelFontWeight": "bold"
+          }
+      },
+      "opacity": {
+          "condition": {
+              "selection": "highlight",
+              "value": 1
+          },
+          "value": 0.2
       },
       "tooltip": [
-        {"field": "Parent", "type": "nominal", "title": "Parent"},
-        {"field": "Age Group", "type": "nominal", "title": "Age Group"},
-        {"field": "Fertility Rate Absolute", "type": "quantitative", "title": "Fertility Rate"}
+          {"field": "Parent", "type": "nominal", "title": "Parent"},
+          {"field": "Age Group", "type": "nominal", "title": "Age Group"},
+          {"field": "Fertility Rate Absolute", "type": "quantitative", "title": "Fertility Rate"}
       ]
-    },
-    "layer": [
+  },
+  "layer": [
       {
-        "mark": {"type": "bar"}
+          "selection": {
+              "highlight": {
+                  "type": "single",
+                  "fields": ["Parent"],
+                  "empty": "all",
+                  "on": "click",
+                  "bind": "legend"
+              }
+          },
+          "mark": {"type": "bar"},
+          "encoding": {
+              "color": {
+                  "condition": {
+                      "selection": "highlight",
+                      "field": "Parent",
+                      "scale": {
+                          "domain": ["Mother", "Father"],
+                          "range": ["#cfa5a5", "#708f9e"]
+                      }
+                  }
+              }
+          }
       }
-    ]
-  }
-  
+  ]
+}

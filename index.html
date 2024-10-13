@@ -94,6 +94,7 @@
       </div>
       <div class="states-graphs">
         <div class="nation-subheader">National Births and Fertility</div>
+        <div class="nation-body">
           <div class="tabs-container">
             <div class="tabs">
                 <button class="tab-button active" onclick="showTab('births')">Births</button>
@@ -101,17 +102,20 @@
             </div>
         
             <div id="births" class="tab-content active">
-              <div class="line-guide1">➤ Use sliders to adjust year range</div>
-              <div class="line-guide2">➤ Hover on the circles to see values</div>
               <div id="vis4" class="line-births"></div>
             </div>
         
             <div id="fertility" class="tab-content">
-              <div class="line-guide1">➤ Use sliders to adjust year range</div>
-              <div class="line-guide2">➤ Hover on the circles to see values</div>
               <div id="vis5" class="line-fertility"></div>
             </div>
           </div>
+          <div class="nation-desc">
+            <div class="line-guide1">➤ Press tabs to switch between charts</div>
+            <div class="line-guide1">➤ Use sliders to adjust year range</div>
+            <div class="line-guide2">➤ Hover on the circles to see values</div>
+            <p>Overall, there has been a noticeable upward trend in births over time, accompanied by a gradual decline in the fertility rate. Recently, both registered births and the fertility rate have stabilized, showing minimal growth. Notably, a decline in both births and fertility rates was observed in 2020, coinciding with the onset of the COVID-19 pandemic, which imposed social distancing measures that limited close contact.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -124,10 +128,29 @@
       </div>
       <div class="parents-body">
         <div class="parents-age">
-
+          <div class="age-subheader">Median Age</div>
+          <p>From 2000 to 2022, the median age of mothers in Australia has increased from <strong>29.8</strong> to <strong>31.9</strong>.
+          In the same time, the median age of fathers has increased from <strong>32.2</strong> to <strong>33.7</strong>.
+          Although men have consistently fathered children at an older age than women, there has been a noticeable 
+          trend toward Australians choosing to have children later in life.</p>
+          <div class="age-guide">➤ Hover on the circles to see values</div>
+          <div id="vis7" class="age-dotplot"></div>
+        </div>
+        <div class="parents-fertility">
+          <div class="fertility-subheader">Fertility by Age Group</div>
+          <p>In 2022, the age group with the highest fertility rate for both mothers and fathers is 30-34. 
+            Interestingly, fathers maintain high fertility rates well into their later years, while the 
+            fertility of women declines significantly in the oldest age group of 45-49.</p>
+            <div class="fertility-guide1">➤ Click on the items in the legend to filter</div>
+            <div class="fertility-guide2">➤ Hover over the bars to see values</div>
+          <div id="vis8" class="fertility-butterfly"></div>
         </div>
       </div>
     </div>
+
+    <hr>
+    <p>Made by Brenda Dang.
+      Data source: https://www.abs.gov.au/statistics/people/population/births-australia/2022</p>
 
   <!-- Script -->
   <script type="text/javascript">

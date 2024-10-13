@@ -1,82 +1,129 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Ranged dot plot for median age of parents over time",
-    "title": "Median Age of Parents Over Time",
-    "data": {
-        "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/median-age.csv",
-        "format": {
-            "type":"csv"
-        }
-    },
-    "transform": [
-      {
-        "filter": {
-          "field": "Parent",
-          "oneOf": ["Mother", "Father"]
-        }
-      },
-      {
-        "filter": {
-          "field": "Year",
-          "oneOf": [2000, 2022]
-        }
-      }
-    ],
-    "encoding": {
-      "x": {
-        "field": "Median Age",
-        "type": "quantitative",
-        "title": "Median age (years)",
-        "scale": {
-            "domain": [28, 34]
-        }
-      },
-      "y": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Ranged dot plot for median age of parents over time",
+  "data": {
+    "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/median-age.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": {
         "field": "Parent",
-        "type": "nominal",
-        "title": "Parent",
-        "axis": {
-          "offset": 5,
-          "ticks": false,
-          "minExtent": 70,
-          "domain": false
+        "oneOf": ["Mother", "Father"]
+      }
+    },
+    {
+      "filter": {
+        "field": "Year",
+        "oneOf": [2000, 2022]
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Median Age",
+      "type": "quantitative",
+      "title": "Median age (years)",
+      "scale": {
+        "domain": [28, 34]
+      }
+    },
+    "y": {
+      "field": "Parent",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "offset": 5,
+        "ticks": false,
+        "minExtent": 70,
+        "domain": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "detail": {
+          "field": "Parent",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.Parent === 'Mother' && datum.Year === 2000",
+              "value": "#c4b1b1"
+            },
+            {
+              "test": "datum.Parent === 'Mother' && datum.Year === 2022",
+              "value": "#c4b1b1"
+            },
+            {
+              "test": "datum.Parent === 'Father' && datum.Year === 2000",
+              "value": "#a0b4bd"
+            },
+            {
+              "test": "datum.Parent === 'Father' && datum.Year === 2022",
+              "value": "#a0b4bd"
+            }
+          ],
+          "value": "black"
         }
       }
     },
-    "layer": [
-      {
-        "mark": "line",
-        "encoding": {
-          "detail": {
-            "field": "Parent",
-            "type": "nominal"
-          },
-          "color": {"value": "#c4b1b1"}
-        }
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
       },
-      {
-        "mark": {
-          "type": "point",
-          "filled": true
+      "encoding": {
+        "color": {
+          "condition": [
+            {
+              "test": "datum.Parent === 'Mother' && datum.Year === 2000",
+              "value": "#c4b1b1"
+            },
+            {
+              "test": "datum.Parent === 'Mother' && datum.Year === 2022",
+              "value": "#9e7070"
+            },
+            {
+              "test": "datum.Parent === 'Father' && datum.Year === 2000",
+              "value": "#a0b4bd"
+            },
+            {
+              "test": "datum.Parent === 'Father' && datum.Year === 2022",
+              "value": "#708f9e"
+            }
+          ],
+          "value": "black"
         },
-        "encoding": {
-          "color": {
+        "size": {
+          "value": 100
+        },
+        "opacity": {
+          "value": 1
+        },
+        "tooltip": [
+          {
+            "field": "Parent",
+            "type": "nominal",
+            "title": "Parent"
+          },
+          {
             "field": "Year",
             "type": "ordinal",
-            "scale": {
-              "domain": [2000, 2022],
-              "range": ["#c4b1b1", "#9e7070"]
-            },
             "title": "Year"
           },
-          "size": {"value": 100},
-          "opacity": {"value": 1},
-          "tooltip": [
-            {"field": "Parent", "type": "nominal", "title": "Parent"},
-            {"field": "Year", "type": "ordinal", "title": "Year"},
-            {"field": "Median Age", "type": "quantitative", "title": "Median Age"}
-          ]
-        }
+          {
+            "field": "Median Age",
+            "type": "quantitative",
+            "title": "Median Age"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
+}

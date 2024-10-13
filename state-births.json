@@ -39,59 +39,85 @@
       "filter": "year(datum.Year) >= startYear && year(datum.Year) <= endYear"
     }
   ],
-  "mark": {
-    "type": "circle",
-    "size": 100,
-    "opacity": 0.5
-  },
-  "selection": {
-    "hover": {
-      "type": "point",
-      "on": "mouseover",
-      "encodings": ["y"],
-      "empty": "all"
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "opacity": 0.5
+      },
+      "selection": {
+        "hover": {
+          "type": "point",
+          "on": "mouseover",
+          "encodings": ["y"],
+          "empty": "all"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "State/Territory",
+          "type": "nominal",
+          "axis": {
+            "title": "State",
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "Births",
+          "type": "quantitative",
+          "axis": {
+            "title": "Number of births ('000)",
+            "format": ",.0f",
+            "labelExpr": "datum.value / 1000"
+          }
+        },
+        "color": {
+          "field": "Year",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "plasma"
+          },
+          "legend": {
+            "title": "Year",
+            "format": "d"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "selection": "hover",
+            "value": 1
+          },
+          "value": 0.5
+        },
+        "tooltip": [
+          {"field": "State/Territory", "type": "nominal"},
+          {"field": "Year", "type": "ordinal"},
+          {"field": "Births", "type": "quantitative"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {"value": 110},  
+        "y": {"value": 10},  
+        "text": {"value": "Highest: NSW"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {"value": 150},  
+        "y": {"value": 290},  
+        "text": {"value": "Lowest: NT"}
+      }
     }
-  },
-  "encoding": {
-    "x": {
-      "field": "State/Territory",
-      "type": "nominal",
-      "axis": {
-        "title": "State",
-        "labelAngle": 0
-      }
-    },
-    "y": {
-      "field": "Births",
-      "type": "quantitative",
-      "axis": {
-        "title": "Number of births ('000)",
-        "format": ",.0f",
-        "labelExpr": "datum.value / 1000"
-      }
-    },
-    "color": {
-      "field": "Year",
-      "type": "quantitative",
-      "scale": {
-        "scheme": "plasma"
-      },
-      "legend": {
-        "title": "Year",
-        "format": "d"
-      }
-    },
-    "opacity": {
-      "condition": {
-        "selection": "hover",
-        "value": 1
-      },
-      "value": 0.5
-    },
-    "tooltip": [
-      {"field": "State/Territory", "type": "nominal"},
-      {"field": "Year", "type": "ordinal"},
-      {"field": "Births", "type": "quantitative"}
-    ]
-  }
+  ]
 }

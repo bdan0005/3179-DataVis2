@@ -62,8 +62,7 @@
         "y": {
           "field": "Births registered",
           "type": "quantitative",
-          "scale": {"domain": [100000, 400000]},
-          "axis": {"title": "Births registered"}
+          "scale": {"domain": [100000, 400000]}
         },
         "color": {
           "value": "#9d86ad"
@@ -84,7 +83,12 @@
         },
         "y": {
           "field": "Births registered",
-          "type": "quantitative"
+          "type": "quantitative",
+          "axis": {
+            "title": "Number of births ('000)",
+            "format": ",.0f",
+            "labelExpr": "datum.value / 1000"
+          }
         },
         "color": {
           "condition": {
@@ -97,6 +101,23 @@
           {"field": "Year", "type": "temporal", "title": "Year", "timeUnit": "year"},
           {"field": "Births registered", "type": "quantitative", "title": "Births registered"}
         ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "dy": -30
+      },
+      "encoding": {
+        "x": {"value": 580},
+        "y": {
+          "field": "Births registered",
+          "type": "quantitative",
+          "aggregate": "mean"
+        },
+        "text": {"value": "COVID-19"}
       }
     }
   ]
