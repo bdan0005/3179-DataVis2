@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A butterfly chart comparing two categories (e.g., Mother and Father) across different age groups.",
-  "title": "Fertility rate by age group in 2022",
+  "title": "Fertility Rate by Age Group in 2022",
   "data": {
       "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/fertility-by-age.csv",
       "format": {"type": "csv"}

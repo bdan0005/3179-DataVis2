@@ -1,12 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Ranged dot plot for median age of parents over time",
+  "title": "Median Age of Australian Parents Over Time",
   "data": {
     "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/median-age.csv",
     "format": {
       "type": "csv"
     }
   },
+  "width": 200,
+  "height": 100,
   "transform": [
     {
       "filter": {
