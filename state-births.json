@@ -1,28 +1,66 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Dot plot of births per state in Australia from 2011-2022.",
-    "data": {
-      "values": [
-        {"state": "NSW", "year": 2011, "births": 95000},
-        {"state": "NSW", "year": 2012, "births": 97000},
-        {"state": "VIC", "year": 2011, "births": 85000},
-        {"state": "VIC", "year": 2012, "births": 88000},
-        {"state": "QLD", "year": 2011, "births": 60000},
-        {"state": "QLD", "year": 2012, "births": 62000},
-        {"state": "WA", "year": 2011, "births": 40000},
-        {"state": "WA", "year": 2012, "births": 43000}
-      ]
-    },
-    "mark": "circle",
-    "encoding": {
-      "x": {"field": "state", "type": "nominal", "axis": {"title": "State"}},
-      "y": {"field": "births", "type": "quantitative", "axis": {"title": "Number of Births"}},
-      "color": {"field": "year", "type": "ordinal", "legend": {"title": "Year"}},
-      "tooltip": [
-        {"field": "state", "type": "nominal"},
-        {"field": "year", "type": "ordinal"},
-        {"field": "births", "type": "quantitative"}
-      ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dot plot of births per state in Australia from 2011-2022.",
+  "title": "Births per State Over Time",
+  "data": {
+    "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/state-births.csv",
+    "format": {
+      "type": "csv"
     }
+  },
+  "width": 400,
+  "height": 400,
+  "mark": {
+    "type": "circle",
+    "size": 50,
+    "opacity": 0.5
+  },
+  "selection": {
+    "hover": {
+      "type": "point",
+      "on": "mouseover",
+      "encodings": ["y"],
+      "empty": "none"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "State/Territory",
+      "type": "nominal",
+      "axis": {
+        "title": "State",
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "Births",
+      "type": "quantitative",
+      "axis": {
+        "title": "Number of births"
+      }
+    },
+    "color": {
+      "field": "Year",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "plasma"
+      },
+      "legend": {
+        "title": "Year",
+        "format": "d"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "selection": "hover",
+        "value": 1
+      },
+      "value": 0.5
+    },
+    "tooltip": [
+      {"field": "State/Territory", "type": "nominal"},
+      {"field": "Year", "type": "ordinal"},
+      {"field": "Births", "type": "quantitative"}
+    ]
   }
-  
+}

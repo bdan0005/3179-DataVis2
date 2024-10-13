@@ -85,8 +85,13 @@
           <div class="parallel-guide">➤ Click on an item in the legend to highlight</div>
           <div id="vis1" class="parallel-coord"></div>
         </div>
-        <div class="states-graphs">
-          <div class="nation-subheader">National Births and Fertility</div>
+        <div class="state-births">
+          <div class="state-births-subheader">Births in the States and Territories</div>
+          <div id="vis6"></div>          
+        </div>
+      </div>
+      <div class="states-graphs">
+        <div class="nation-subheader">National Births and Fertility</div>
           <div class="tabs-container">
             <div class="tabs">
                 <button class="tab-button active" onclick="showTab('births')">Births</button>
@@ -105,21 +110,31 @@
               <div id="vis5" class="line-fertility"></div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="state-births">
-        <div class="state-births-subheader">Births in the States and Territories</div>
-
       </div>
     </div>
-    <!-- end pure grid group -->
 
+    <!-- The Parents of Australia -->
+    <div class="parents">
+      <div class="parents-header">
+        <hr>
+        <h2>The Parents of Australia</h2>
+        <hr>
+      </div>
+      <div class="parents-body">
+        <div class="parents-age">
+
+        </div>
+      </div>
+    </div>
+
+  <!-- Script -->
   <script type="text/javascript">
     var specVis1 = "./parallel_coord.json";
     var specVis2 = "./choropleth_map.json";
     var specVis3 = "./pictogram.json";
     var specVis4 = "./line_births.json";
     var specVis5 = "./line_fertility.json";
+    var specVis6 = "./state-births.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
 
@@ -136,6 +151,10 @@
     }).catch(console.error);
 
     vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
     

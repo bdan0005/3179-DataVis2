@@ -140,6 +140,9 @@ hr {
 
 .choropleth {
     margin: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .choropleth-desc {
@@ -194,6 +197,12 @@ hr {
     padding-bottom: 20px;
 }
 
+.parallel-coord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .nation-subheader {
     font-size: 16px;
     color: #313131;
@@ -208,7 +217,7 @@ hr {
 
 .tabs-container {
     margin: 25px;
-    width: 525px;
+    width: 750px;
 }
 
 .tabs {
@@ -277,4 +286,11 @@ hr {
     margin-top: 10px;
     margin-right: 25px;
     margin-left: 20px;
+}
+
+/* Parents */
+.parents {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
