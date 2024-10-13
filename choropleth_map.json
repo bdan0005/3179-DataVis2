@@ -72,8 +72,7 @@
           "field": "BirthRate",
           "type": "quantitative",
           "scale": {
-            "scheme": "viridis",
-            "reverse": true
+            "scheme": "purpleblue"
           },
           "title": "Births per 1000 people",
           "legend": {
