@@ -99,6 +99,36 @@
       }
     },
     {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -5,
+        "fontSize": 10,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {"value": 260}, 
+        "y": {"value": 125}, 
+        "text": {"value": "Highest: NT"} 
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -5,
+        "fontSize": 10,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {"value": 260}, 
+        "y": {"value": 220}, 
+        "text": {"value": "Lowest: ACT"} 
+      }
+    },
+    {
       "encoding": {
         "x": {"type": "nominal", "field": "key"},
         "y": {"value": 0}
