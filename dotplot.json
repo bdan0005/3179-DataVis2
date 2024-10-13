@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+    "description": "Ranged dot plot for median age of parents over time",
+    "title": "Median Age of Parents Over Time",
     "data": {
         "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/median-age.csv",
         "format": {
@@ -10,27 +11,30 @@
     "transform": [
       {
         "filter": {
-          "field": "country",
-          "oneOf": ["China", "India", "United States", "Indonesia", "Brazil"]
+          "field": "Parent",
+          "oneOf": ["Mother", "Father"]
         }
       },
       {
         "filter": {
-          "field": "year",
-          "oneOf": [1955, 2000]
+          "field": "Year",
+          "oneOf": [2000, 2022]
         }
       }
     ],
     "encoding": {
       "x": {
-        "field": "life_expect",
+        "field": "Median Age",
         "type": "quantitative",
-        "title": "Life Expectancy (years)"
+        "title": "Median age (years)",
+        "scale": {
+            "domain": [28, 34]
+        }
       },
       "y": {
-        "field": "country",
+        "field": "Parent",
         "type": "nominal",
-        "title": "Country",
+        "title": "Parent",
         "axis": {
           "offset": 5,
           "ticks": false,
@@ -44,10 +48,10 @@
         "mark": "line",
         "encoding": {
           "detail": {
-            "field": "country",
+            "field": "Parent",
             "type": "nominal"
           },
-          "color": {"value": "#db646f"}
+          "color": {"value": "#c4b1b1"}
         }
       },
       {
@@ -57,16 +61,21 @@
         },
         "encoding": {
           "color": {
-            "field": "year",
+            "field": "Year",
             "type": "ordinal",
             "scale": {
-              "domain": [1955, 2000],
-              "range": ["#e6959c", "#911a24"]
+              "domain": [2000, 2022],
+              "range": ["#c4b1b1", "#9e7070"]
             },
             "title": "Year"
           },
           "size": {"value": 100},
-          "opacity": {"value": 1}
+          "opacity": {"value": 1},
+          "tooltip": [
+            {"field": "Parent", "type": "nominal", "title": "Parent"},
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {"field": "Median Age", "type": "quantitative", "title": "Median Age"}
+          ]
         }
       }
     ]

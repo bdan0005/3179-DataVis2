@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A butterfly chart comparing Median Age for Mothers and Fathers in 2000 and 2022.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/bdan0005/3179-DataVis2/refs/heads/main/median-age.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "filter": {
+          "field": "Year",
+          "oneOf": [2000, 2022]
+        }
+      },
+      {
+        "calculate": "datum.Parent === 'Mother' ? datum['Median Age'] : -datum['Median Age']",
+        "as": "Median Age"
+      }
+    ],
+    "encoding": {
+      "y": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {
+          "labelAngle": 0
+        }
+      },
+      "x": {
+        "field": "Median Age",
+        "type": "quantitative",
+        "title": "Median Age (Mother vs Father)",
+        "scale": {"domain": [-34, 34]},
+        "axis": {
+          "labelExpr": "datum.value < 0 ? -datum.value : datum.value"
+        }
+      },
+      "color": {
+        "field": "Parent",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Mother", "Father"],
+          "range": ["#e6959c", "#9e7070"]
+        },
+        "title": "Parent"
+      },
+      "tooltip": [
+        {"field": "Parent", "type": "nominal", "title": "Parent"},
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Median Age", "type": "quantitative", "title": "Median Age"}
+      ]
+    },
+    "layer": [
+      {
+        "mark": {"type": "bar"}
+      }
+    ]
+  }
+  
