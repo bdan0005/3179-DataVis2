@@ -98,23 +98,6 @@
           {"field": "Total fertility rate", "type": "quantitative", "title": "Fertility Rate"}
         ]
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "dy": 65
-      },
-      "encoding": {
-        "x": {"value": 580},
-        "y": {
-          "field": "Total fertility rate",
-          "type": "quantitative",
-          "aggregate": "mean"
-        },
-        "text": {"value": "COVID-19"}
-      }
     }
   ]
 }

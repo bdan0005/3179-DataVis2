@@ -102,23 +102,6 @@
           {"field": "Births registered", "type": "quantitative", "title": "Births registered"}
         ]
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "dy": -30
-      },
-      "encoding": {
-        "x": {"value": 580},
-        "y": {
-          "field": "Births registered",
-          "type": "quantitative",
-          "aggregate": "mean"
-        },
-        "text": {"value": "COVID-19"}
-      }
     }
   ]
 }
