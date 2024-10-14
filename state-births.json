@@ -100,23 +100,27 @@
     {
       "mark": {
         "type": "text",
-        "fontSize": 11
+        "fontSize": 11,
+        "fontWeight": "bold"
       },
+      "transform": [
+        {
+          "filter": "year(datum.Year) >= startYear && year(datum.Year) <= endYear"
+        },
+        {
+          "aggregate": [
+            {"op": "sum", "field": "Births", "as": "totalBirths"}
+          ]
+        },
+        {
+          "calculate": "'Total births: ' + datum.totalBirths / 1000 + 'k'",
+          "as": "totalBirthsLabel"
+        }
+      ],
       "encoding": {
-        "x": {"value": 110},  
-        "y": {"value": 10},  
-        "text": {"value": "Highest: NSW"}
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 11
-      },
-      "encoding": {
-        "x": {"value": 150},  
-        "y": {"value": 290},  
-        "text": {"value": "Lowest: NT"}
+        "x": {"value": 175},
+        "y": {"value": 10},
+        "text": {"field": "totalBirthsLabel"}
       }
     }
   ]
